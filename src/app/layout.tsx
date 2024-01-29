@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ProviderAuth } from "@/context/AppContext";
 
 export const metadata: Metadata = {
   title: "Master FM",
@@ -8,12 +9,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+          <ProviderAuth>
+            {children}
+          </ProviderAuth>
+      </body>
     </html>
   );
 }
