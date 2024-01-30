@@ -24,7 +24,7 @@ const LoginForm = () => {
     try {
       const res = await hand({ userEmail, userPassword });
       if (res) route.push("/dashboard");
-      else context.showAlert('User credentials are incorrect');
+      else context.showAlert("User credentials are incorrect");
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +40,7 @@ const LoginForm = () => {
           Email
         </label>
         <input
-          {...register("userEmail")}
+          {...register("userEmail", { required: true })}
           type="text"
           id="userEmail"
           placeholder="john@example.com"
@@ -50,7 +50,7 @@ const LoginForm = () => {
         />
         {errors.userEmail && (
           <span className="text-sm text-red-400">
-            This flied is required (test@gmail.com){" "}
+            This flied is required (test@example.com){" "}
           </span>
         )}
       </div>
