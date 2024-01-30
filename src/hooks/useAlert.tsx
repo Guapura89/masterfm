@@ -5,11 +5,8 @@ export type AlertState = {
   hidden: boolean;
 };
 
-enum ALERT_STATE {
-  WARNING = "warning",
-  SUCCESS = "success",
-  INFO = "info",
-}
+type AlertType = "warning" | "success" | "info";
+
 
 const initialState: AlertState = {
   message: "",
